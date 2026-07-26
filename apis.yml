@@ -1,0 +1,61 @@
+name: RouterPlex
+description: >-
+  Multi-model LLM API gateway fronting 37 models from multiple vendors behind one API key and prepaid balance, exposing
+  OpenAI-compatible and Anthropic-compatible REST endpoints, streaming, tool calling, JSON mode, vision, and image
+  generation.
+url: https://routerplex.apievangelist.com/apis.yml
+created: '2026-07-26'
+modified: '2026-07-26'
+specificationVersion: '0.21'
+tags:
+  - llm
+  - ai
+  - ai-gateway
+  - inference
+  - model-router
+  - openai-compatible
+  - anthropic-compatible
+  - claude
+  - gpt
+  - gemini
+  - api-gateway
+  - agent-infrastructure
+  - developer-tools
+apis:
+  - name: RouterPlex Inference API
+    description: >-
+      OpenAI-compatible and Anthropic-compatible REST API for chat completions, model listing, and image generation
+      across 37 models. Key-authenticated with per-key budgets, allowlists, and rate limits.
+    humanURL: https://docs.routerplex.com
+    baseURL: https://api.routerplex.com/v1
+    tags:
+      - llm
+      - ai
+      - ai-gateway
+      - inference
+      - model-router
+      - openai-compatible
+      - anthropic-compatible
+      - claude
+      - gpt
+      - gemini
+      - api-gateway
+      - agent-infrastructure
+      - developer-tools
+    properties:
+      - type: Documentation
+        url: https://docs.routerplex.com
+      - type: Documentation
+        url: https://docs.routerplex.com/quickstart
+      - type: LLMSTxt
+        url: https://routerplex.com/llms.txt
+      - type: LLMSTxt
+        url: https://docs.routerplex.com/llms-full.txt
+maintainers:
+  - FN: RouterPlex
+    url: https://routerplex.com
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 95
+  at: '2026-07-26T00:46:39.460Z'
