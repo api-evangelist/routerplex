@@ -1,0 +1,39 @@
+generated: '2026-08-09'
+method: searched
+source:
+  - https://registry.npmjs.org/-/v1/search?text=routerplex
+  - https://pypi.org/pypi/routerplex/json
+  - https://rubygems.org/api/v1/gems/routerplex.json
+  - https://api.github.com/orgs/RouterPlex/repos
+  - https://docs.routerplex.com/openai-sdk
+packages: []
+first_party_sdks: false
+finding: >-
+  RouterPlex publishes no first-party client libraries. This is deliberate, not a
+  gap: the product's whole premise is OpenAI/Anthropic wire compatibility, so the
+  documented integration path is the vendors' own official SDKs with base_url
+  changed. Shipping a RouterPlex SDK would undercut the portability claim.
+registry_probes:
+  - {registry: npm, query: routerplex, results: 0, status: 200}
+  - {registry: pypi, package: routerplex, status: 404}
+  - {registry: rubygems, package: routerplex, status: 404}
+  - {registry: crates.io, package: routerplex, status: 403, note: registry blocked the unauthenticated probe}
+  - {registry: github, org: RouterPlex, status: 200, repos: 6, note: 'all six are curated "awesome-*" link lists; no SDK, no CLI, no client code'}
+documented_clients:
+  note: >-
+    Third-party/vendor SDKs RouterPlex documents as the supported way in. official:false
+    throughout — none of these are RouterPlex packages.
+  clients:
+    - {language: python, registry: pypi, name: openai, url: 'https://pypi.org/project/openai/', docs: 'https://docs.routerplex.com/openai-sdk', official: false}
+    - {language: javascript, registry: npm, name: openai, url: 'https://www.npmjs.com/package/openai', docs: 'https://docs.routerplex.com/openai-sdk', official: false}
+    - {language: python, registry: pypi, name: anthropic, url: 'https://pypi.org/project/anthropic/', docs: 'https://docs.routerplex.com/anthropic-messages', official: false}
+    - {language: javascript, registry: npm, name: '@anthropic-ai/sdk', url: 'https://www.npmjs.com/package/@anthropic-ai/sdk', docs: 'https://docs.routerplex.com/anthropic-messages', official: false}
+    - {language: python, registry: pypi, name: langchain-openai, docs: 'https://docs.routerplex.com/frameworks', official: false}
+    - {language: python, registry: pypi, name: llama-index, docs: 'https://docs.routerplex.com/frameworks', official: false}
+    - {language: javascript, registry: npm, name: '@ai-sdk/openai-compatible', docs: 'https://docs.routerplex.com/frameworks', official: false}
+integration_guides:
+  note: >-
+    RouterPlex ships no CLI of its own, but documents configuration for a long list
+    of third-party agents and IDEs — the substitute for an SDK surface.
+  targets: [Cursor, Cline, Roo Code, Continue, 'VS Code Chat', 'Codex VS Code', 'Codex CLI', Zed, 'Claude Code', OpenClaw, OpenCode, Aider, OpenHands]
+  source: https://routerplex.com/llms.txt

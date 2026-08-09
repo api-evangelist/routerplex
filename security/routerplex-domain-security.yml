@@ -1,0 +1,21 @@
+generated: '2026-08-09'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: docs.routerplex.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  2 23:32:58 2026 GMT
+  hsts: false
+- host: api.routerplex.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  2 23:32:58 2026 GMT
+  hsts: null
+domains:
+- domain: routerplex.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

@@ -1,0 +1,20 @@
+generated: '2026-08-09'
+method: generated
+source: openapi/routerplex-inference-openapi.json
+note: >-
+  Grounded only in operationIds that exist verbatim in the published OpenAPI:
+  createChatCompletion, createImageGeneration, createCodexResponse, createMessage,
+  listModels. No provider-published skills or AGENTS.md were found.
+skills:
+  - file: routerplex-select-and-call-a-model.md
+    name: Select a RouterPlex model and call it
+    api: openapi/routerplex-inference-openapi.json
+    operations: [listModels, createChatCompletion]
+  - file: routerplex-anthropic-compatible-messages.md
+    name: Call any RouterPlex model through the Anthropic Messages format
+    api: openapi/routerplex-inference-openapi.json
+    operations: [createMessage, listModels]
+  - file: routerplex-generate-an-image.md
+    name: Generate an image through RouterPlex
+    api: openapi/routerplex-inference-openapi.json
+    operations: [createImageGeneration, listModels]

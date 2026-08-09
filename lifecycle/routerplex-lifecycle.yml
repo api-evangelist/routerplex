@@ -1,0 +1,60 @@
+generated: '2026-08-09'
+method: searched
+source:
+  - https://docs.routerplex.com/
+  - https://routerplex.com/terms
+  - https://routerplex.com/about
+  - well-known/routerplex-api-catalog.json
+  - openapi/routerplex-inference-openapi.json
+versioning:
+  scheme: uri-path
+  current: v1
+  spec_version: 1.0.0
+  evidence: >-
+    servers[0].url is https://api.routerplex.com/v1; info.version is 1.0.0 in the
+    published OpenAPI.
+  policy_url: null
+  note: No written versioning policy is published. Only v1 has ever existed — RouterPlex launched July 2026.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No deprecation policy, no Sunset/Deprecation (RFC 8594) header support documented.
+    The terms reserve the right to change the service, and note that upstream model
+    "performance, pricing, and availability can change without notice" — model
+    retirement is effectively passed through from the vendors with no stated notice
+    window.
+status_page: null
+status_endpoint:
+  url: https://api.routerplex.com/health/liveliness
+  observed_status: 200
+  observed_body: '"I''m alive!"'
+  declared_in: well-known/routerplex-api-catalog.json (RFC 9727 "status" link relation)
+  note: >-
+    A machine liveness probe, not a status page. It carries no incident history, no
+    component breakdown and no uptime record. status.routerplex.com does not resolve.
+sla:
+  url: null
+  uptime_target: null
+  evidence: >-
+    Terms explicitly disclaim it — "We do not guarantee uninterrupted availability,
+    and we are dependent on third-party model providers whose performance, pricing,
+    and availability can change without notice."
+changelog:
+  url: null
+  note: >-
+    No dated changelog at routerplex.com/changelog or docs.routerplex.com/changelog
+    (both 404) and none in the sitemap. The blog is dated and updated frequently but
+    is marketing/guide content, not a release log. The closest thing to a change
+    record is the dated model catalog at https://routerplex.com/models.
+deprecated_operations: []
+company_lifecycle:
+  launched: '2026-07'
+  evidence: '"We launched in July 2026" — https://routerplex.com/about'
+  self_description: '"young and independently built"'
+  github_org_created: '2026-07-05'
+gaps:
+  - No status page or incident history.
+  - No deprecation/sunset policy and no Sunset header support.
+  - No SLA — availability is explicitly disclaimed in the terms.
+  - No dated API changelog.

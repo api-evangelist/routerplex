@@ -1,0 +1,70 @@
+generated: '2026-08-09'
+method: searched
+source:
+  - https://docs.routerplex.com/errors
+  - https://docs.routerplex.com/keys-budgets
+  - https://routerplex.com/pricing.md
+headers: []
+header_note: >-
+  No rate-limit response headers are documented. A limit surfaces as HTTP 429 with
+  the OpenAI error envelope.
+rate_limits:
+  - name: Edge request rate
+    scope: per IP
+    limit_count: 60
+    limit_period: second
+    applies_to: all endpoints
+    source: https://docs.routerplex.com/errors
+  - name: Request body size
+    scope: per request
+    limit_count: 50
+    limit_unit: MB
+    applies_to: all endpoints
+    note: Sized for base64 vision payloads.
+    source: https://docs.routerplex.com/errors
+  - name: Stream duration
+    scope: per request
+    limit_count: 10
+    limit_unit: minutes
+    applies_to: streaming responses
+    source: https://docs.routerplex.com/errors
+  - name: Per-key RPM / TPM
+    scope: per API key
+    limit_count: null
+    optional: true
+    note: >-
+      Off by default. Set per key in the dashboard. RouterPlex imposes no RPM/TPM cap
+      of its own on any plan — the pricing table reads "No cap" across all four tiers.
+    source: https://routerplex.com/pricing.md
+  - name: Per-key lifetime spend budget
+    scope: per API key
+    limit_type: spend
+    note: >-
+      A hard lifetime budget per key. Exceeding it is rejected and is NOT retryable —
+      a retry cannot raise a hard budget.
+    source: https://docs.routerplex.com/keys-budgets
+  - name: Plan spend windows
+    scope: per account
+    limit_type: spend
+    windows:
+      - {plan: Pay as you go, per_4_hours: null, per_week: null, per_month: null, note: balance only, no window}
+      - {plan: Plex Lite, per_4_hours: '$2.20', per_week: '$5.50', per_month: '$11'}
+      - {plan: Plex Pro, per_4_hours: '$7', per_week: '$17.50', per_month: '$35'}
+      - {plan: Plex Max, per_4_hours: '$25', per_week: '$62.50', per_month: '$125'}
+    note: >-
+      Spend windows, not request-rate limits. They apply account-wide while a plan is
+      active; a top-up does not bypass a reached window.
+    source: https://routerplex.com/pricing.md
+  - name: API key count
+    scope: per account
+    limits: [{plan: Pay as you go, keys: 3}, {plan: Plex Lite, keys: 10}, {plan: Plex Pro, keys: 50}, {plan: Plex Max, keys: unlimited}]
+    source: https://routerplex.com/pricing.md
+  - name: Promotional account limits
+    scope: per account
+    limit_count: null
+    note: Docs state promotional accounts carry tighter limits; the values are not published.
+    source: https://docs.routerplex.com/keys-budgets
+upstream_limits:
+  note: >-
+    A 429 may also originate from the upstream model vendor rather than RouterPlex.
+    Those limits are the vendor's and are not published by RouterPlex.

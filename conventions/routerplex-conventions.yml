@@ -1,0 +1,84 @@
+generated: '2026-08-09'
+method: searched
+source:
+  - https://docs.routerplex.com/authentication
+  - https://docs.routerplex.com/errors
+  - https://docs.routerplex.com/streaming
+  - https://docs.routerplex.com/keys-budgets
+  - openapi/routerplex-inference-openapi.json
+authentication:
+  style: static API key
+  transports:
+    - {header: Authorization, format: 'Bearer sk-...', clients: OpenAI-compatible}
+    - {header: x-api-key, format: 'sk-...', clients: Anthropic-compatible}
+  note: >-
+    Both styles are accepted on /v1/messages. Keys are created and revoked in the
+    dashboard; revocation is immediate. There is no OAuth, no token refresh, no
+    expiry — the key is the whole credential.
+  key_scoping:
+    per_key_budget: true
+    per_key_model_allowlist: true
+    per_key_rpm_tpm: optional
+    note: >-
+      Documented at https://docs.routerplex.com/keys-budgets as the recommended
+      pattern for agents: give each app, IDE or agent its own key with its own hard
+      lifetime budget and model allowlist so "an agent gone wild can't drain your
+      whole balance."
+  see_also: authentication/routerplex-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No idempotency key is documented or present in the OpenAPI. Inference requests
+    are non-idempotent and billable — a retried POST is a second charge. This is
+    inherited from the OpenAI/Anthropic wire formats, which also have no idempotency
+    contract on completions. Agents must dedupe client-side.
+pagination:
+  supported: false
+  note: >-
+    No paginated collections. GET /v1/models returns the full list for the key in
+    one response.
+field_expansion:
+  supported: false
+metadata:
+  supported: passthrough
+  note: >-
+    Request schemas are additionalProperties:true throughout, so vendor-specific
+    fields pass through to the upstream model provider. RouterPlex does not define
+    its own metadata object.
+request_tracing:
+  request_id_header: null
+  note: >-
+    No RouterPlex request-id header is documented. Cloudflare's cf-ray is present on
+    responses but is edge infrastructure, not a provider-supported correlation ID.
+versioning:
+  style: uri-path
+  current: v1
+  see_also: lifecycle/routerplex-lifecycle.yml
+error_envelope:
+  format: openai
+  shape: '{"error":{"message","type","code"}}'
+  content_type: application/json
+  rfc9457: false
+  see_also: errors/routerplex-problem-types.yml
+rate_limit_signaling:
+  headers_documented: false
+  note: >-
+    No RateLimit / X-RateLimit / Retry-After headers are documented. Limits surface
+    only as a 429 with a message. Retry guidance is prose: retry a rate limit, do not
+    retry a reached spend limit.
+  see_also: rate-limits/routerplex-rate-limits.yml
+streaming:
+  style: server-sent-events
+  trigger: 'stream: true'
+  max_duration: 10 minutes
+  note: >-
+    The /messages route emits Anthropic SSE event names (message_start,
+    content_block_delta, message_stop) for EVERY model, including non-Claude models —
+    the gateway translates the event stream, not just the request shape.
+compatibility_contract:
+  note: >-
+    RouterPlex's core convention is that it has no conventions of its own. It adopts
+    OpenAI's and Anthropic's wire formats verbatim so the official SDKs work with only
+    base_url changed. Portability is the product; the tradeoff is that it also
+    inherits their gaps — no idempotency, no problem+json, no rate-limit headers.

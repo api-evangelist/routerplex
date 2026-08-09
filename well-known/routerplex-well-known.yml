@@ -1,0 +1,93 @@
+generated: '2026-08-09'
+method: searched
+source: live probes of /.well-known/* on every RouterPlex host
+hosts_probed:
+  - https://routerplex.com
+  - https://api.routerplex.com
+  - https://docs.routerplex.com
+documents:
+  - host: https://routerplex.com
+    path: /.well-known/api-catalog
+    status: 200
+    content_type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+    standard: RFC 9727 (API catalog / linkset)
+    file: routerplex-api-catalog.json
+    note: >-
+      Points at the OpenAPI description (service-desc), the human documentation
+      (service-doc), and a liveness resource (status). This is what confirmed the
+      OpenAPI at https://routerplex.com/openapi.json is first-party.
+  - host: https://routerplex.com
+    path: /robots.txt
+    status: 200
+    content_type: text/plain
+    standard: robots.txt + Content-Signal
+    file: routerplex-robots.txt
+    note: >-
+      Carries a Content-Signal directive — "ai-train=no, search=yes, ai-input=yes" —
+      an explicit machine-readable AI usage preference. Training is refused; search
+      indexing and inference-time input (RAG/agent grounding) are permitted.
+  - host: https://routerplex.com
+    path: /.well-known/security.txt
+    status: 404
+  - host: https://routerplex.com
+    path: /.well-known/openid-configuration
+    status: 404
+  - host: https://routerplex.com
+    path: /.well-known/oauth-authorization-server
+    status: 404
+  - host: https://routerplex.com
+    path: /.well-known/oauth-protected-resource
+    status: 404
+  - host: https://routerplex.com
+    path: /.well-known/ai-plugin.json
+    status: 404
+  - host: https://routerplex.com
+    path: /.well-known/agent-card.json
+    status: 404
+  - host: https://routerplex.com
+    path: /.well-known/agent.json
+    status: 404
+  - host: https://api.routerplex.com
+    path: /.well-known/security.txt
+    status: 404
+  - host: https://api.routerplex.com
+    path: /.well-known/api-catalog
+    status: 404
+  - host: https://api.routerplex.com
+    path: /.well-known/oauth-authorization-server
+    status: 404
+  - host: https://api.routerplex.com
+    path: /.well-known/oauth-protected-resource
+    status: 404
+  - host: https://api.routerplex.com
+    path: /.well-known/agent-card.json
+    status: 404
+  - host: https://api.routerplex.com
+    path: /.well-known/agent.json
+    status: 404
+  - host: https://docs.routerplex.com
+    path: /.well-known/security.txt
+    status: 404
+  - host: https://docs.routerplex.com
+    path: /.well-known/api-catalog
+    status: 404
+  - host: https://docs.routerplex.com
+    path: /.well-known/agent-card.json
+    status: 404
+  - host: https://docs.routerplex.com
+    path: /.well-known/agent.json
+    status: 404
+gaps:
+  - >-
+    No /.well-known/security.txt (RFC 9116) on any host — no published security
+    contact or vulnerability-disclosure policy.
+  - >-
+    The api-catalog is served only from the marketing host (routerplex.com), not
+    from the API host (api.routerplex.com), where RFC 9727 consumers would look first.
+x-evidence:
+  fetched: '2026-08-09'
+  checks:
+    - {url: 'https://routerplex.com/.well-known/api-catalog', http_status: 200}
+    - {url: 'https://routerplex.com/robots.txt', http_status: 200}
+    - {url: 'https://routerplex.com/.well-known/security.txt', http_status: 404}
+    - {url: 'https://api.routerplex.com/.well-known/api-catalog', http_status: 404}

@@ -1,0 +1,49 @@
+generated: '2026-08-09'
+method: searched
+source:
+  - https://docs.routerplex.com/quickstart
+  - https://docs.routerplex.com/keys-budgets
+  - https://routerplex.com/pricing.md
+test_mode:
+  supported: false
+  note: >-
+    There is no test/live key separation, no test-mode key prefix, no free sandbox
+    tier and no mock/fixture endpoint. Every request against api.routerplex.com is a
+    real, billable upstream inference call. The minimum entry cost is a $5 top-up.
+key_prefixes:
+  live: 'sk-'
+  test: null
+  note: >-
+    One key namespace. Documented as an Authorization Bearer token, or the same value
+    in the x-api-key header for Anthropic-compatible clients.
+playground:
+  url: https://routerplex.com/dashboard/playground
+  access: account-gated
+  observed_status: '200 (redirects to https://routerplex.com/sign-in?redirect=%2Fdashboard%2Fplayground)'
+  advertised: >-
+    Listed on the public pricing table (https://routerplex.com/pricing.md) as
+    "Playground | Included" on Pay as you go, and "Shares account windows" on Lite,
+    Pro and Max.
+  note: >-
+    A real interactive console, but it spends the same prepaid balance as the API —
+    it is a console, not a sandbox.
+safe_experimentation:
+  note: >-
+    RouterPlex's answer to a sandbox is spend containment rather than fake data. The
+    documented pattern is a dedicated API key per agent/IDE with a hard lifetime
+    budget and a model allowlist, so a runaway agent burns a capped key instead of
+    the account balance. The balance itself stops at $0 and never goes negative.
+  controls:
+    - {control: per-key hard lifetime spend budget, source: 'https://docs.routerplex.com/keys-budgets'}
+    - {control: per-key model allowlist, source: 'https://docs.routerplex.com/keys-budgets'}
+    - {control: optional per-key RPM/TPM, source: 'https://docs.routerplex.com/keys-budgets'}
+    - {control: balance floors at $0, never negative, source: 'https://routerplex.com/pricing.md'}
+free_read_only_surface:
+  note: >-
+    The one genuinely free, anonymous, zero-risk surface is the MCP server at
+    https://routerplex.com/mcp — model catalog, search and doc references, no key
+    required and no inference performed. Useful for building and testing model
+    selection logic before spending anything.
+  see_also: mcp/routerplex-mcp.yml
+test_values: []
+test_values_note: No magic test identifiers, test cards or fixture values are published. None were invented.

@@ -1,0 +1,110 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the RouterPlex Inference API
+  version: 1.0.0
+extends: openapi/routerplex-inference-openapi.json
+x-generated: '2026-08-09'
+x-method: generated
+x-source: >-
+  Derived from the provider's own published surface: docs.routerplex.com
+  (llms-full.txt), routerplex.com/pricing.md, /.well-known/api-catalog, and the
+  live MCP server at routerplex.com/mcp. Never mutates the harvested spec.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-08-09'
+      x-api-catalog: https://routerplex.com/.well-known/api-catalog
+      x-llms-txt: https://routerplex.com/llms.txt
+      x-mcp-server: https://routerplex.com/mcp
+      x-content-signal: 'ai-train=no, search=yes, ai-input=yes'
+      x-launched: '2026-07'
+
+  # The spec omits the Anthropic-compatible x-api-key header that the docs document
+  # as an equal-standing auth style on /messages.
+  - target: $.components.securitySchemes
+    update:
+      RouterPlexAnthropicKey:
+        type: apiKey
+        in: header
+        name: x-api-key
+        description: >-
+          Anthropic-compatible clients send the same RouterPlex API key in x-api-key.
+          Documented at https://docs.routerplex.com/authentication — both styles work
+          on /v1/messages.
+
+  # Platform limits published at https://docs.routerplex.com/errors but absent from the spec.
+  - target: $.info
+    update:
+      x-rate-limit:
+        edge: 60 requests/second per IP
+        request_body_max: 50 MB
+        stream_max_duration: 10 minutes
+        note: >-
+          Separate from optional per-key RPM/TPM limits and the tighter limits on
+          promotional accounts. Plan tiers additionally apply 4-hour, weekly and
+          monthly spend windows (https://routerplex.com/pricing.md).
+
+  - target: $.paths['/chat/completions'].post
+    update:
+      tags: [chat]
+      x-billable: true
+      x-streaming: server-sent-events
+
+  - target: $.paths['/images/generations'].post
+    update:
+      tags: [images]
+      x-billable: true
+
+  - target: $.paths['/responses'].post
+    update:
+      tags: [chat]
+      x-billable: true
+      x-streaming: server-sent-events
+      x-compatibility: OpenAI Responses API — intended for Codex custom model providers.
+
+  - target: $.paths['/messages'].post
+    update:
+      tags: [chat]
+      x-billable: true
+      x-streaming: server-sent-events
+      x-compatibility: >-
+        Anthropic Messages API. Returns Anthropic SSE events (message_start,
+        content_block_delta, message_stop) even when the selected model is not a
+        Claude model.
+
+  - target: $.paths['/models'].get
+    update:
+      tags: [models]
+      x-billable: false
+      x-mcp-equivalent: routerplex_list_models
+      description: >-
+        Returns the models available to the authenticated key, honoring that key's
+        model allowlist. The full public catalog with prices is available
+        anonymously via the MCP tool routerplex_list_models or at
+        https://routerplex.com/models.
+
+  # The spec declares no response schemas; the docs publish the OpenAI-shaped error envelope.
+  - target: $.components
+    update:
+      schemas:
+        RouterPlexError:
+          type: object
+          description: >-
+            OpenAI-shaped error envelope, documented at
+            https://docs.routerplex.com/errors. Applied to every 4xx/5xx response.
+          properties:
+            error:
+              type: object
+              properties:
+                message: {type: string}
+                type: {type: string, example: invalid_request_error}
+                code: {type: string}
+
+  - target: $.tags
+    update:
+      - name: chat
+        description: OpenAI-, Responses- and Anthropic-compatible completion routes.
+      - name: images
+        description: OpenAI-compatible image generation.
+      - name: models
+        description: Model catalog available to the authenticated key.

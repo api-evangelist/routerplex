@@ -1,0 +1,70 @@
+generated: '2026-08-09'
+method: searched
+source: https://routerplex.com/pricing.md
+docs: https://routerplex.com/pricing
+currency: USD
+model: prepaid balance + optional monthly credit subscription
+token_pricing: >-
+  Vendor list price with 0% markup and 0% top-up fee. Per-model token rates are
+  identical on every plan and published live at https://routerplex.com/models.
+plans:
+  - name: Pay as you go
+    price: 0
+    period: month
+    minimum_top_up: 5
+    credits_included: null
+    bonus: null
+    api_keys: 3
+    rpm_tpm_cap: none
+    spend_windows: {per_4_hours: null, per_week: null, per_month: null}
+    credit_expiration: never
+    support: Community
+    note: Not a trial — the default way to use RouterPlex.
+  - name: Plex Lite
+    price: 10
+    period: month
+    credits_included: 11
+    bonus: '+10%'
+    effective_discount: '~9%'
+    api_keys: 10
+    rpm_tpm_cap: none
+    spend_windows: {per_4_hours: '$2.20', per_week: '$5.50', per_month: '$11'}
+    support: Email
+    best_for: About $10 or more of usage each month.
+  - name: Plex Pro
+    price: 30
+    period: month
+    credits_included: 35
+    bonus: '+17%'
+    effective_discount: '~14%'
+    api_keys: 50
+    rpm_tpm_cap: none
+    spend_windows: {per_4_hours: '$7', per_week: '$17.50', per_month: '$35'}
+    support: Priority
+    includes: [Everything in Lite, Early access to new models]
+    best_for: Agents or production apps using $30 or more each month.
+  - name: Plex Max
+    price: 100
+    period: month
+    credits_included: 125
+    bonus: '+25%'
+    effective_discount: '~20%'
+    api_keys: unlimited
+    rpm_tpm_cap: none
+    spend_windows: {per_4_hours: '$25', per_week: '$62.50', per_month: '$125'}
+    support: Direct channel
+    includes: [Everything in Pro, Highest queue priority]
+    best_for: A team or heavy workload using $100 or more each month.
+billing_terms:
+  - Per-model token prices are identical on every plan.
+  - Plans are billed monthly and can be cancelled at any time.
+  - Unused plan credits roll over while a subscription remains active.
+  - A prepaid balance stops at $0 and never goes negative; keys can also carry hard lifetime spend budgets.
+  - Plan credits, top-ups, vouchers and bonuses form one pooled prepaid balance.
+  - Balance can fund one non-renewing 30-day plan cycle, once per account; recurring plans require card checkout.
+refunds:
+  note: >-
+    Top-ups are non-refundable once consumed; unused purchased credit may be refunded
+    at RouterPlex's discretion on request. Promotional credit is non-refundable.
+  source: https://routerplex.com/terms
+machine_readable: https://routerplex.com/pricing.md

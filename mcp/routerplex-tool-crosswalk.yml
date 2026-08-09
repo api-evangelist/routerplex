@@ -1,0 +1,80 @@
+generated: '2026-08-09'
+method: derived
+source:
+  - mcp/routerplex-mcp.yml
+  - openapi/routerplex-inference-openapi.json
+description: >-
+  Binds each live RouterPlex MCP tool to its backing OpenAPI operation. RouterPlex
+  is an unusual case: the MCP surface and the REST surface barely overlap. MCP is a
+  read-only catalog/discovery surface; REST is the paid inference surface. Only one
+  tool has a REST counterpart.
+surfaces:
+  openapi:
+    file: openapi/routerplex-inference-openapi.json
+    servers: ['https://api.routerplex.com/v1']
+    gated: true
+    note: All five operations require a RouterPlex API key (bearer, or x-api-key on /messages).
+  mcp:
+    url: https://routerplex.com/mcp
+    gated: false
+    note: tools/list answers anonymously — the real inputSchemas were harvested live.
+  graphql: null
+crosswalk:
+  - tool: routerplex_list_models
+    category: discovery
+    rest: [listModels]
+    binding: rest
+    confidence: medium
+    note: >-
+      Semantically parallel but not identical. listModels (GET /v1/models) returns
+      the models available to the AUTHENTICATED key, honoring that key's allowlist.
+      routerplex_list_models returns the PUBLIC catalog with pricing and context
+      windows, anonymously. Same concept, different audience and payload.
+  - tool: routerplex_find_models
+    category: discovery
+    rest: [listModels]
+    binding: rest
+    confidence: low
+    note: >-
+      No REST search operation exists. Filtering by provider/mode/context/vision is
+      server-side in MCP only; the closest REST equivalent is listing all models and
+      filtering client-side.
+  - tool: routerplex_get_api_reference
+    category: documentation
+    rest: []
+    binding: none
+    confidence: high
+    note: Returns documentation links. No REST operation serves documentation.
+mcp_only:
+  - tool: routerplex_find_models
+    reason: >-
+      Server-side model search with pricing/capability filters. No public REST search
+      endpoint exists.
+  - tool: routerplex_get_api_reference
+    reason: >-
+      Documentation-link resolver. Not part of the inference API at all.
+rest_only:
+  - capability: inference
+    operations: [createChatCompletion, createCodexResponse, createMessage]
+    reason: >-
+      All billable inference is REST-only. The MCP server states in every tool
+      description that it "never makes inference requests" — a deliberate boundary,
+      not a gap.
+  - capability: image-generation
+    operations: [createImageGeneration]
+    reason: Billable image generation is REST-only, same boundary as inference.
+coverage:
+  tools_named: 3
+  tools_bound_to_rest: 2
+  tools_mcp_only: 2
+  rest_operations_total: 5
+  rest_operations_with_a_tool: 1
+  note: >-
+    routerplex_find_models is counted in both tools_bound_to_rest (low confidence)
+    and tools_mcp_only (no dedicated REST search op).
+divergence_summary: >-
+  4 of 5 REST operations have no MCP tool, and 2 of 3 MCP tools have no REST
+  operation. RouterPlex has deliberately split its surfaces: MCP is free, anonymous,
+  read-only discovery; REST is keyed, metered execution. An agent can shop the
+  catalog over MCP but must switch to REST — with a key and a prepaid balance — to
+  actually run anything.

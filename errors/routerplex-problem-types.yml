@@ -1,0 +1,84 @@
+generated: '2026-08-09'
+method: searched
+source: https://docs.routerplex.com/errors
+derived_from: openapi/routerplex-inference-openapi.json
+format: openai-error-envelope
+envelope:
+  content_type: application/json
+  shape: |
+    {
+      "error": {
+        "message": "...",
+        "type": "invalid_request_error",
+        "code": "..."
+      }
+    }
+  fields:
+    - {name: error.message, description: Human-readable explanation. Read this before retrying.}
+    - {name: error.type, description: 'Error class, e.g. invalid_request_error.'}
+    - {name: error.code, description: Machine-readable code. Distinguishes a budget/balance rejection from a rate limit.}
+  note: >-
+    Not RFC 9457. RouterPlex mirrors the OpenAI error envelope so OpenAI SDK error
+    handling works unmodified.
+problems:
+  - status: 400
+    title: Malformed request, unsupported parameter, or insufficient prepaid balance
+    retryable: false
+    remediation: Fix the request or top up the prepaid balance. A retry cannot restore a zero balance.
+    source_operations:
+      - openapi/routerplex-inference-openapi.json#createImageGeneration
+    docs: https://docs.routerplex.com/errors
+  - status: 401
+    title: Missing or invalid API key
+    retryable: false
+    remediation: >-
+      Fix the key. OpenAI-compatible clients send Authorization: Bearer; Anthropic-compatible
+      clients may send x-api-key. Keys are created and revoked in the dashboard.
+    source_operations:
+      - openapi/routerplex-inference-openapi.json#createChatCompletion
+      - openapi/routerplex-inference-openapi.json#createImageGeneration
+      - openapi/routerplex-inference-openapi.json#createCodexResponse
+      - openapi/routerplex-inference-openapi.json#createMessage
+      - openapi/routerplex-inference-openapi.json#listModels
+    docs: https://docs.routerplex.com/authentication
+  - status: 404
+    title: Resource not found
+    retryable: false
+    remediation: Check the path. Observed live on api.routerplex.com for unknown routes.
+    source_operations: []
+    note: >-
+      Not declared in the OpenAPI. Observed during probing:
+      {"error":{"message":"RouterPlex could not find this resource..."}}
+  - status: 429
+    title: Rate limit or spend limit reached
+    retryable: conditional
+    remediation: >-
+      Retry with backoff for a rate limit; do NOT retry a reached spend limit — a retry
+      cannot raise a hard key budget. Read error.code to tell them apart. Causes: the
+      60 req/s per-IP edge limit, an optional per-key RPM/TPM limit, an upstream provider
+      limit, or a gateway spend-limit failure.
+    source_operations:
+      - openapi/routerplex-inference-openapi.json#createChatCompletion
+      - openapi/routerplex-inference-openapi.json#createImageGeneration
+      - openapi/routerplex-inference-openapi.json#createCodexResponse
+      - openapi/routerplex-inference-openapi.json#createMessage
+    docs: https://docs.routerplex.com/errors
+  - status: 5xx
+    title: Upstream provider issue
+    retryable: true
+    remediation: >-
+      Retry. RouterPlex fronts third-party model vendors; 5xx generally reflects the
+      upstream vendor rather than the gateway.
+    source_operations: []
+    docs: https://docs.routerplex.com/errors
+gaps:
+  - >-
+    The published OpenAPI declares no response schemas — every response is a bare
+    description string, so error bodies are not machine-readable from the spec. The
+    envelope above was harvested from the docs, not the contract.
+  - >-
+    No enumerated error.code registry is published, so an agent cannot statically
+    distinguish "hard budget reached" from "transient rate limit" without parsing
+    error.message.
+  - >-
+    404 is returned by the live API but is absent from the OpenAPI.

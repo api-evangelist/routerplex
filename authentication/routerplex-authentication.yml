@@ -1,0 +1,14 @@
+generated: '2026-08-09'
+method: derived
+source: openapi/routerplex-inference-openapi.json
+summary:
+  types:
+  - http
+schemes:
+- name: RouterPlexApiKey
+  type: http
+  scheme: bearer
+  bearerFormat: RouterPlex API key
+  description: Create and manage API keys in the RouterPlex dashboard.
+  sources:
+  - openapi/routerplex-inference-openapi.json

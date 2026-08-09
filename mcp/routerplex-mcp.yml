@@ -1,0 +1,81 @@
+generated: '2026-08-09'
+method: searched
+status: published
+source: https://routerplex.com/mcp
+server:
+  name: routerplex-public-catalog
+  title: RouterPlex Public Catalog
+  description: Read-only model discovery, pricing, and official RouterPlex API references.
+  version: 1.0.0
+  transport: http
+  url: https://routerplex.com/mcp
+  website: https://routerplex.com
+  icon: https://routerplex.com/icon.svg
+  protocol_version: '2025-06-18'
+  capabilities:
+    tools:
+      listChanged: true
+    prompts: false      # prompts/list -> -32601 Method not found
+    resources: false    # resources/list -> -32601 Method not found
+  authentication:
+    required: false
+    note: >-
+      tools/list and initialize both answer anonymously — no OAuth challenge, no
+      API key. The server is a public catalog surface; it does NOT expose the
+      inference API. Tool descriptions state explicitly "This tool never makes
+      inference requests."
+  discovery:
+    note: >-
+      Undocumented. The server is not mentioned in llms.txt, llms-full.txt, the
+      docs sitemap, or /.well-known/api-catalog. It was found by probing
+      https://routerplex.com/mcp, which answers GET with 405 and an
+      Allow: POST, OPTIONS header plus MCP-Protocol-Version CORS exposure.
+tools:
+  - name: routerplex_list_models
+    description: >-
+      List RouterPlex's public AI model catalog with providers, capabilities,
+      context windows, and token prices. This tool never makes inference requests.
+    input_schema: {type: object, properties: {}}
+    annotations: {readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false}
+  - name: routerplex_find_models
+    description: >-
+      Find RouterPlex models by model ID, provider, mode, context, or vision
+      capability. This tool never makes inference requests.
+    input_schema:
+      type: object
+      properties:
+        query: {type: string, minLength: 1, maxLength: 200, description: A model, provider, or capability to search for.}
+      required: [query]
+      additionalProperties: false
+    annotations: {readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false}
+  - name: routerplex_get_api_reference
+    description: >-
+      Return official RouterPlex documentation links for authentication, API
+      formats, models, and pricing.
+    input_schema:
+      type: object
+      properties:
+        topic:
+          type: string
+          enum: [authentication, chat-completions, messages, models, pricing]
+          description: Optional documentation topic.
+      additionalProperties: false
+    annotations: {readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false}
+raw_manifest: routerplex-tools-list.json
+observations:
+  - >-
+    Every tool is read-only, non-destructive, idempotent and closed-world. There
+    is no MCP tool that spends money or calls a model — the commercial surface
+    (chat completions, images, messages) is REST-only and API-key gated.
+  - >-
+    Each tool carries an `execution: {taskSupport: forbidden}` block, so the
+    server declines long-running task execution semantics.
+x-evidence:
+  fetched: '2026-08-09'
+  checks:
+    - {url: 'https://routerplex.com/mcp', method: GET, http_status: 405, note: 'Allow: POST, OPTIONS'}
+    - {url: 'https://routerplex.com/mcp', method: 'POST tools/list', http_status: 200, tools: 3}
+    - {url: 'https://routerplex.com/mcp', method: 'POST initialize', http_status: 200}
+    - {url: 'https://routerplex.com/mcp', method: 'POST prompts/list', http_status: 200, jsonrpc_error: -32601}
+    - {url: 'https://api.routerplex.com/mcp', method: GET, http_status: 404}
+    - {url: 'https://mcp.routerplex.com/', method: GET, http_status: 0, note: no DNS record}

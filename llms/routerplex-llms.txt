@@ -1,0 +1,116 @@
+# RouterPlex
+
+> RouterPlex is an OpenAI- and Anthropic-compatible AI gateway: one API key and one prepaid balance for 39 models (GPT, Claude, Gemini, DeepSeek, Kimi, Qwen and more).
+
+Base URL: https://api.routerplex.com/v1
+
+## Docs
+
+- [Introduction](https://docs.routerplex.com/): What RouterPlex is and how it fits into your stack.
+- [Quickstart](https://docs.routerplex.com/quickstart): Verify the route, create a key, and send your first request.
+- [Authentication](https://docs.routerplex.com/authentication): API keys, headers, and key hygiene.
+- [Chat completions](https://docs.routerplex.com/chat-completions): OpenAI-compatible chat completions for every chat model.
+- [Anthropic Messages](https://docs.routerplex.com/anthropic-messages): Use Anthropic's SDK and /v1/messages format with every chat model.
+- [Streaming](https://docs.routerplex.com/streaming): Server-sent events, token by token.
+- [Image generation](https://docs.routerplex.com/images): OpenAI-compatible image generation with gpt-image-2.
+- [Models](https://docs.routerplex.com/models): Listing models and picking IDs.
+- [Errors & limits](https://docs.routerplex.com/errors): Status codes, retry guidance, and platform limits.
+- [OpenAI SDKs](https://docs.routerplex.com/openai-sdk): Python and JavaScript/TypeScript official SDKs.
+- [LangChain, LlamaIndex & AI SDK](https://docs.routerplex.com/frameworks): Use RouterPlex from the popular LLM frameworks.
+- [Cursor](https://docs.routerplex.com/cursor): Use any RouterPlex model inside Cursor.
+- [VS Code — Cline, Roo, Continue](https://docs.routerplex.com/vscode): The three big VS Code AI extensions.
+- [VS Code — built-in Chat](https://docs.routerplex.com/vscode-chat): Add RouterPlex models to VS Code's built-in Chat via a custom endpoint.
+- [Codex — VS Code extension](https://docs.routerplex.com/codex-vscode): Configure OpenAI's Codex extension for VS Code with RouterPlex.
+- [Zed](https://docs.routerplex.com/zed): Configure Zed's agent panel with RouterPlex models.
+- [Claude Code with RouterPlex](https://docs.routerplex.com/claude-code): Route Claude Code to any RouterPlex chat model — no translation proxy needed. One base URL change adds a prepaid balance with per-key budgets.
+- [OpenClaw](https://docs.routerplex.com/openclaw): Add RouterPlex as a model provider in OpenClaw.
+- [OpenCode](https://docs.routerplex.com/opencode): Add RouterPlex as a custom provider in OpenCode.
+- [Codex CLI](https://docs.routerplex.com/codex-cli): Point OpenAI's Codex CLI at RouterPlex.
+- [Aider](https://docs.routerplex.com/aider): AI pair programming in your terminal, billed through RouterPlex.
+- [OpenHands](https://docs.routerplex.com/openhands): Run the OpenHands agent on RouterPlex models.
+- [Keys & budgets](https://docs.routerplex.com/keys-budgets): Per-key budgets, model allowlists, and promotional-account limits.
+- [Billing & credits](https://docs.routerplex.com/billing): Prepaid balance, top-ups, and how costs are computed.
+
+## Pricing
+
+- [Pay as you go](https://routerplex.com/pricing): Top up from $5 and pay per token at vendor list prices — no subscription required. No RouterPlex RPM/TPM or usage-window cap · 3 keys · credit never expires.
+- [Machine-readable pricing](https://routerplex.com/pricing.md): plan limits, credits, and billing terms in Markdown.
+- [Plex Lite](https://routerplex.com/pricing): $10/month — $11 in credits every month (+10%). Best when you use about $10 or more each month.
+- [Plex Pro](https://routerplex.com/pricing): $30/month — $35 in credits every month (+17%). Best when agents or production apps use $30 or more each month.
+- [Plex Max](https://routerplex.com/pricing): $100/month — $125 in credits every month (+25%). Best when a team or heavy workload uses $100 or more each month.
+
+## Comparisons
+
+- [RouterPlex vs OpenRouter](https://routerplex.com/vs/openrouter): same vendor list prices per token; RouterPlex charges $0 on top-ups (OpenRouter: 5.5% card / 5% crypto) and balances never go negative.
+- [AI Model Benchmarks](https://routerplex.com/benchmarks): quality, task, price, latency and value rankings with sample counts and cited external sources.
+- [Machine-readable model benchmarks](https://routerplex.com/benchmarks.md): current rankings and confidence labels in Markdown.
+
+## Guides
+
+- [Qwen3.8-Max API: Pricing, Context Window and Setup](https://routerplex.com/blog/qwen3-8-max-api-pricing-setup): Qwen3.8-Max API pricing is $2 per 1M input and $6 per 1M output tokens. See the 1M context window, image input, cost per agent turn, and setup. (updated 2026-08-04)
+- [What Is an OpenAI-Compatible API? Endpoints, SDK Setup, and Provider Switching](https://routerplex.com/blog/openai-compatible-api): Learn what OpenAI-compatible means, which endpoints and SDK settings carry over, what can break, and how to switch providers with curl, Python, and JavaScript. (updated 2026-08-03)
+- [Best LLM Gateways for Developers (2026): 9 Compared](https://routerplex.com/blog/best-llm-gateways): Compare nine LLM gateways and inference platforms: RouterPlex, OpenRouter, Requesty, AgentRouter, Fireworks, Together, LiteLLM, Portkey, and Helicone. (updated 2026-08-02)
+- [OpenRouter Alternatives (2026): 8 Options Compared](https://routerplex.com/blog/openrouter-alternatives): Compare 8 OpenRouter alternatives for hosted model access, self-hosting and observability. See fees, tradeoffs and which gateway fits your workload. (updated 2026-08-02)
+- [OpenRouter Negative Balance and 402 Errors: Causes and Fixes](https://routerplex.com/blog/openrouter-negative-balance-402): See why an OpenRouter balance can show below zero, what a 402 insufficient credits error means, how to recover, and how to limit the next incident. (updated 2026-08-02)
+- [Kimi K3 API: Pricing, Context Window and Setup](https://routerplex.com/blog/kimi-k3-api-pricing-setup): Official Kimi K3 API pricing: $3 per 1M cache-miss input, $0.30 cache-hit, $15 output. Compare cost on OpenRouter vs RouterPlex, plus 1M context and setup. (updated 2026-07-30)
+- [Grok API Pricing: Every Model, Rate and the 200K Cliff](https://routerplex.com/blog/grok-api-pricing): Grok API pricing: Grok 4.5 is $2 per 1M input and $6 per 1M output tokens, doubling above a 200K prompt. Full xAI rate table, cached input, and setup. (updated 2026-07-30)
+- [OpenRouter Credits: Fees, Expiry, and What $100 Actually Costs](https://routerplex.com/blog/openrouter-top-up-fees): OpenRouter credits cost 5.5% to buy ($0.80 minimum), can expire 365 days after purchase, and are refundable for only 24 hours. See the full $100 math. (updated 2026-07-30)
+- [Claude Opus 5 API: Pricing, Context and Setup](https://routerplex.com/blog/claude-opus-5-api-pricing-setup): Claude Opus 5 API pricing is $5 per 1M input and $25 per 1M output tokens, the same rate as Opus 4.8. See its 1M context, effort tiers, and setup. (updated 2026-07-27)
+- [Claude Code Router Setup: Current CCR Guide for Any Model](https://routerplex.com/blog/claude-code-router-setup): Install the current Claude Code Router, add an OpenAI-compatible provider, connect Claude Code, verify routing, or use a direct Messages gateway. (updated 2026-07-26)
+- [Claude Code Pricing: Pro, Max, and API Costs](https://routerplex.com/blog/claude-code-pricing): Claude Code costs $20/month with Pro, $100 or $200 with Max, or pay-as-you-go API rates. Compare plans, limits, and the right billing route. (updated 2026-07-19)
+- [Install Claude Code on macOS, Windows, and Linux](https://routerplex.com/blog/install-claude-code): Install Claude Code with the current native installer on macOS, Windows, Linux, or WSL. Verify the CLI, fix PATH errors, authenticate, and update safely. (updated 2026-07-19)
+- [Claude Code Alternatives (2026): 8 Coding Agents Compared](https://routerplex.com/blog/claude-code-alternatives): Compare eight Claude Code alternatives across terminal agents, IDE extensions, open-source tools, model choice, automation, and API billing. (updated 2026-07-19)
+- [LiteLLM Alternatives: Managed Gateways vs Self-Hosting](https://routerplex.com/blog/managed-litellm-alternatives): Compare LiteLLM alternatives across self-hosted proxies, managed BYOK gateways, and prepaid model access, including operations, billing, and security. (updated 2026-07-19)
+- [OpenCode Custom Provider Setup for Claude, GPT, and Gemini](https://routerplex.com/blog/opencode-custom-provider-routerplex): Add RouterPlex to OpenCode with the OpenAI-compatible provider package, register model IDs, select a model, and set a hard API-key budget. (updated 2026-07-19)
+- [Cline OpenAI-Compatible API Setup with RouterPlex](https://routerplex.com/blog/cline-openai-compatible-routerplex): Configure Cline's OpenAI Compatible provider with RouterPlex, enter the base URL and model ID, verify the connection, and limit agent spend. (updated 2026-07-19)
+- [Aider OpenAI-Compatible API Setup with RouterPlex](https://routerplex.com/blog/aider-openai-compatible-routerplex): Point Aider at RouterPlex with OPENAI_API_BASE, choose Claude or GPT through the openai/ model prefix, and protect the coding session with a key budget. (updated 2026-07-19)
+- [GPT-5.6 API Pricing: Sol vs Terra vs Luna](https://routerplex.com/blog/gpt-5-6-api-pricing-sol-terra-luna): Compare GPT-5.6 Sol, Terra and Luna API pricing, vision support and context limits. See which GPT-5.6 model fits coding, agents and high-volume workloads. (updated 2026-07-16)
+- [Claude Fable 5 API: Pricing, Context and Setup](https://routerplex.com/blog/claude-fable-5-api-pricing-setup): Claude Fable 5 API pricing is $10 per 1M input and $50 per 1M output tokens. See its 1M context, 128K output, vision support and RouterPlex setup. (updated 2026-07-16)
+- [OpenClaw Custom Provider Setup with RouterPlex](https://routerplex.com/blog/openclaw-custom-provider-routerplex): Connect OpenClaw to RouterPlex as an OpenAI-compatible custom provider, choose Claude or Gemini models, verify the route, and cap agent spending. (updated 2026-07-15)
+
+## Models
+
+- [All model API pricing](https://routerplex.com/models): live per-token prices for every model.
+- [Qwen3.6 Plus](https://routerplex.com/models/qwen3-6-plus): $0.50/1M input, $3.00/1M output, 1M context (Alibaba)
+- [Qwen3.7 Max](https://routerplex.com/models/qwen3-7-max): $2.50/1M input, $7.50/1M output, 1M context (Alibaba)
+- [Qwen3.7 Plus](https://routerplex.com/models/qwen3-7-plus): $0.32/1M input, $1.28/1M output, 1M context (Alibaba)
+- [Qwen3.8 Max](https://routerplex.com/models/qwen3-8-max): $2.00/1M input, $6.00/1M output, 1M context (Alibaba)
+- [Claude Fable 5](https://routerplex.com/models/claude-fable-5): $10.00/1M input, $50.00/1M output, 1M context (Anthropic)
+- [Claude Haiku 4.5](https://routerplex.com/models/claude-haiku-4-5): $1.00/1M input, $5.00/1M output, 256K context (Anthropic)
+- [Claude Opus 4.6](https://routerplex.com/models/claude-opus-4-6): $5.00/1M input, $25.00/1M output, 1M context (Anthropic)
+- [Claude Opus 4.7](https://routerplex.com/models/claude-opus-4-7): $5.00/1M input, $25.00/1M output, 1M context (Anthropic)
+- [Claude Opus 4.8](https://routerplex.com/models/claude-opus-4-8): $5.00/1M input, $25.00/1M output, 1M context (Anthropic)
+- [Claude Opus 5](https://routerplex.com/models/claude-opus-5): $5.00/1M input, $25.00/1M output, 1M context (Anthropic)
+- [Claude Sonnet 4.6](https://routerplex.com/models/claude-sonnet-4-6): $3.00/1M input, $15.00/1M output, 1M context (Anthropic)
+- [Claude Sonnet 5](https://routerplex.com/models/claude-sonnet-5): $2.00/1M input, $10.00/1M output, 1M context (Anthropic)
+- [Doubao Seed 2.0 Code](https://routerplex.com/models/doubao-seed-2-0-code): $0.67/1M input, $3.36/1M output, 200K context (ByteDance)
+- [Doubao Seed 2.0 Pro](https://routerplex.com/models/doubao-seed-2-0-pro): $0.67/1M input, $3.36/1M output, 128K context (ByteDance)
+- [DeepSeek V4 Flash](https://routerplex.com/models/deepseek-v4-flash): $0.090/1M input, $0.18/1M output, 1M context (DeepSeek)
+- [DeepSeek V4 Pro](https://routerplex.com/models/deepseek-v4-pro): $0.43/1M input, $0.87/1M output, 1M context (DeepSeek)
+- [Gemini 3.1 Pro](https://routerplex.com/models/gemini-3-1-pro): $2.00/1M input, $12.00/1M output, 1M context (Google)
+- [Gemini 3.5 Flash](https://routerplex.com/models/gemini-3-5-flash): $1.50/1M input, $9.00/1M output, 1M context (Google)
+- [LongCat 2.0](https://routerplex.com/models/longcat-2-0): $0.30/1M input, $1.20/1M output, 1M context (LongCat)
+- [MiniMax M2.7](https://routerplex.com/models/minimax-m2-7): $0.30/1M input, $1.20/1M output, 196K context (MiniMax)
+- [MiniMax M2.7 Highspeed](https://routerplex.com/models/minimax-m2-7-highspeed): $0.60/1M input, $2.40/1M output, 196K context (MiniMax)
+- [MiniMax M3](https://routerplex.com/models/minimax-m3): $0.30/1M input, $1.20/1M output, 1M context (MiniMax)
+- [MiniMax M3 Highspeed](https://routerplex.com/models/minimax-m3-highspeed): $0.45/1M input, $1.80/1M output, 1M context (MiniMax)
+- [Kimi K2.6](https://routerplex.com/models/kimi-k2-6): $0.95/1M input, $4.00/1M output, 256K context (Moonshot)
+- [Kimi K2.7](https://routerplex.com/models/kimi-k2-7): $0.95/1M input, $4.00/1M output, 256K context (Moonshot)
+- [Kimi K3](https://routerplex.com/models/kimi-k3): $3.00/1M input, $15.00/1M output, 1M context (Moonshot)
+- [GPT-5.4](https://routerplex.com/models/gpt-5-4): $2.50/1M input, $15.00/1M output, 1M context (OpenAI)
+- [GPT-5.5](https://routerplex.com/models/gpt-5-5): $5.00/1M input, $30.00/1M output, 256K context (OpenAI)
+- [GPT-5.6 Luna](https://routerplex.com/models/gpt-5-6-luna): $1.00/1M input, $6.00/1M output, 258K context (OpenAI)
+- [GPT-5.6 Sol](https://routerplex.com/models/gpt-5-6-sol): $5.00/1M input, $30.00/1M output, 258K context (OpenAI)
+- [GPT-5.6 Terra](https://routerplex.com/models/gpt-5-6-terra): $2.50/1M input, $15.00/1M output, 258K context (OpenAI)
+- [GPT Image 2](https://routerplex.com/models/gpt-image-2): $5.00/1M input, $30.00/1M output (OpenAI)
+- [Step 3.7 Flash](https://routerplex.com/models/step-3-7-flash): $0.20/1M input, $1.15/1M output, 256K context (StepFun)
+- [Hy3](https://routerplex.com/models/hy3): $0.20/1M input, $0.80/1M output, 256K context (Tencent Hunyuan)
+- [MiMo V2.5](https://routerplex.com/models/mimo-v2-5): $0.11/1M input, $0.28/1M output, 1M context (Xiaomi)
+- [MiMo V2.5 Pro](https://routerplex.com/models/mimo-v2-5-pro): $0.44/1M input, $0.87/1M output, 1M context (Xiaomi)
+- [GLM-5.1](https://routerplex.com/models/glm-5-1): $1.40/1M input, $4.40/1M output, 256K context (Zhipu)
+- [GLM-5.2](https://routerplex.com/models/glm-5-2): $1.40/1M input, $4.40/1M output, 1M context (Zhipu)
+- [Grok 4.5](https://routerplex.com/models/grok-4-5): $2.00/1M input, $6.00/1M output, 500K context (xAI)
+
+## Optional
+
+- [Full documentation as one file](https://docs.routerplex.com/llms-full.txt)
