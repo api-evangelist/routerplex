@@ -30,50 +30,126 @@ tags:
   - mcp
   - llmops
 apis:
-  - name: RouterPlex Inference API
-    description: >-
-      OpenAI-compatible and Anthropic-compatible REST API for chat completions, the OpenAI Responses route, image
-      generation and model listing across the RouterPlex catalog. Bearer or x-api-key authenticated, with per-key
-      budgets, model allowlists and rate limits. Streaming is server-sent events, and the Anthropic route emits
-      Anthropic SSE event names for every model, not only Claude.
-    humanURL: https://docs.routerplex.com
-    baseURL: https://api.routerplex.com/v1
-    tags:
-      - llm
-      - ai
-      - ai-gateway
-      - inference
-      - model-router
-      - openai-compatible
-      - anthropic-compatible
-      - claude
-      - gpt
-      - gemini
-      - api-gateway
-      - agent-infrastructure
-      - developer-tools
-    properties:
-      - type: OpenAPI
-        url: openapi/routerplex-inference-openapi.json
-      - type: OpenAPI
-        name: RouterPlex published OpenAPI 3.1 description
-        url: https://routerplex.com/openapi.json
-      - type: Overlay
-        url: overlays/routerplex-inference-overlay.yaml
-      - type: Documentation
-        url: https://docs.routerplex.com
-      - type: APIReference
-        url: https://docs.routerplex.com/chat-completions
-      - type: GettingStarted
-        url: https://docs.routerplex.com/quickstart
-      - type: Authentication
-        url: https://docs.routerplex.com/authentication
-      - type: ErrorCatalog
-        url: https://docs.routerplex.com/errors
-      - type: LLMSTxt
-        url: https://routerplex.com/llms.txt
-      - type: LLMSTxt
-        url: https://docs.routerplex.com/llms-full.txt
+- aid: routerplex:routerplex-chat-api
+  name: RouterPlex Chat API
+  description: The Chat API from RouterPlex — 1 operation(s) for chat.
+  humanURL: https://docs.routerplex.com
+  baseURL: https://api.routerplex.com/v1
+  tags:
+  - Chat
+  properties:
+  - type: OpenAPI
+    url: openapi/routerplex-chat-api-openapi.yml
+  - type: Documentation
+    url: https://docs.routerplex.com
+  - type: APIReference
+    url: https://docs.routerplex.com/chat-completions
+  - type: GettingStarted
+    url: https://docs.routerplex.com/quickstart
+  - type: Authentication
+    url: https://docs.routerplex.com/authentication
+  - type: ErrorCatalog
+    url: https://docs.routerplex.com/errors
+  - type: LLMSTxt
+    url: https://routerplex.com/llms.txt
+  - type: LLMSTxt
+    url: https://docs.routerplex.com/llms-full.txt
+- aid: routerplex:routerplex-images-api
+  name: RouterPlex Images API
+  description: The Images API from RouterPlex — 1 operation(s) for images.
+  humanURL: https://docs.routerplex.com
+  baseURL: https://api.routerplex.com/v1
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/routerplex-images-api-openapi.yml
+  - type: Documentation
+    url: https://docs.routerplex.com
+  - type: APIReference
+    url: https://docs.routerplex.com/chat-completions
+  - type: GettingStarted
+    url: https://docs.routerplex.com/quickstart
+  - type: Authentication
+    url: https://docs.routerplex.com/authentication
+  - type: ErrorCatalog
+    url: https://docs.routerplex.com/errors
+  - type: LLMSTxt
+    url: https://routerplex.com/llms.txt
+  - type: LLMSTxt
+    url: https://docs.routerplex.com/llms-full.txt
+- aid: routerplex:routerplex-messages-api
+  name: RouterPlex Messages API
+  description: The Messages API from RouterPlex — 1 operation(s) for messages.
+  humanURL: https://docs.routerplex.com
+  baseURL: https://api.routerplex.com/v1
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/routerplex-messages-api-openapi.yml
+  - type: Documentation
+    url: https://docs.routerplex.com
+  - type: APIReference
+    url: https://docs.routerplex.com/chat-completions
+  - type: GettingStarted
+    url: https://docs.routerplex.com/quickstart
+  - type: Authentication
+    url: https://docs.routerplex.com/authentication
+  - type: ErrorCatalog
+    url: https://docs.routerplex.com/errors
+  - type: LLMSTxt
+    url: https://routerplex.com/llms.txt
+  - type: LLMSTxt
+    url: https://docs.routerplex.com/llms-full.txt
+- aid: routerplex:routerplex-models-api
+  name: RouterPlex Models API
+  description: The Models API from RouterPlex — 1 operation(s) for models.
+  humanURL: https://docs.routerplex.com
+  baseURL: https://api.routerplex.com/v1
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/routerplex-models-api-openapi.yml
+  - type: Documentation
+    url: https://docs.routerplex.com
+  - type: APIReference
+    url: https://docs.routerplex.com/chat-completions
+  - type: GettingStarted
+    url: https://docs.routerplex.com/quickstart
+  - type: Authentication
+    url: https://docs.routerplex.com/authentication
+  - type: ErrorCatalog
+    url: https://docs.routerplex.com/errors
+  - type: LLMSTxt
+    url: https://routerplex.com/llms.txt
+  - type: LLMSTxt
+    url: https://docs.routerplex.com/llms-full.txt
+- aid: routerplex:routerplex-responses-api
+  name: RouterPlex Responses API
+  description: The Responses API from RouterPlex — 1 operation(s) for responses.
+  humanURL: https://docs.routerplex.com
+  baseURL: https://api.routerplex.com/v1
+  tags:
+  - Responses
+  properties:
+  - type: OpenAPI
+    url: openapi/routerplex-responses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.routerplex.com
+  - type: APIReference
+    url: https://docs.routerplex.com/chat-completions
+  - type: GettingStarted
+    url: https://docs.routerplex.com/quickstart
+  - type: Authentication
+    url: https://docs.routerplex.com/authentication
+  - type: ErrorCatalog
+    url: https://docs.routerplex.com/errors
+  - type: LLMSTxt
+    url: https://routerplex.com/llms.txt
+  - type: LLMSTxt
+    url: https://docs.routerplex.com/llms-full.txt
 maintainers:
   - FN: RouterPlex
     email: support@routerplex.com
@@ -84,6 +160,8 @@ generated:
   confidence: 95
   at: '2026-07-26T00:46:39.460Z'
 common:
+- type: Overlay
+  url: overlays/routerplex-inference-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/routerplex-agentic-access.yml
 - type: DomainSecurity
