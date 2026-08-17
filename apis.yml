@@ -8,7 +8,7 @@ description: >-
   budgets, model allowlists and optional RPM/TPM limits are the containment model for autonomous agents. RouterPlex
   also runs an anonymous read-only MCP server for model discovery and publishes an RFC 9727 API catalog, an OpenAPI
   3.1 description, llms.txt and Markdown pricing and benchmark companions.
-url: https://routerplex.apievangelist.com/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/routerplex/refs/heads/main/apis.yml
 image: https://routerplex.com/icon.svg
 created: '2026-07-26'
 modified: '2026-08-09'
