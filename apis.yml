@@ -12,7 +12,7 @@ url: https://raw.githubusercontent.com/api-evangelist/routerplex/refs/heads/main
 image: https://routerplex.com/icon.svg
 created: '2026-07-26'
 modified: '2026-08-09'
-specificationVersion: '0.21'
+specificationVersion: '0.23'
 tags:
   - llm
   - ai
