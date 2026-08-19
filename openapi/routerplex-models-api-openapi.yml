@@ -1,0 +1,33 @@
+openapi: 3.2.0
+info:
+  title: RouterPlex Models API
+  version: 1.0.0
+  description: RouterPlex is an AI gateway that exposes OpenAI-compatible chat completions and image generation, a Responses route for Codex custom providers, and Anthropic-compatible messages through a RouterPlex API key.
+  contact:
+    url: https://docs.routerplex.com/
+servers:
+- url: https://api.routerplex.com/v1
+  description: RouterPlex production API
+security:
+- RouterPlexApiKey: []
+tags:
+- name: Models
+paths:
+  /models:
+    get:
+      summary: List models available to the authenticated API key
+      operationId: listModels
+      responses:
+        '200':
+          description: Available model IDs and metadata.
+        '401':
+          description: Missing or invalid API key.
+      tags:
+      - Models
+components:
+  securitySchemes:
+    RouterPlexApiKey:
+      type: http
+      scheme: bearer
+      bearerFormat: RouterPlex API key
+      description: Create and manage API keys in the RouterPlex dashboard.

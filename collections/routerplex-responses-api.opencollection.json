@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RouterPlex Responses API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Responses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an OpenAI Responses API response for Codex",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.routerplex.com/v1/responses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Use this compatibility route for Codex custom model providers. Other OpenAI-compatible clients should use Chat Completions unless their client requires Responses."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

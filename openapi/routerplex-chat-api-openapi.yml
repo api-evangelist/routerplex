@@ -1,0 +1,58 @@
+openapi: 3.2.0
+info:
+  title: RouterPlex Chat API
+  version: 1.0.0
+  description: RouterPlex is an AI gateway that exposes OpenAI-compatible chat completions and image generation, a Responses route for Codex custom providers, and Anthropic-compatible messages through a RouterPlex API key.
+  contact:
+    url: https://docs.routerplex.com/
+servers:
+- url: https://api.routerplex.com/v1
+  description: RouterPlex production API
+security:
+- RouterPlexApiKey: []
+tags:
+- name: Chat
+paths:
+  /chat/completions:
+    post:
+      summary: Create an OpenAI-compatible chat completion
+      operationId: createChatCompletion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - model
+              - messages
+              properties:
+                model:
+                  type: string
+                  description: A model ID from the RouterPlex catalog.
+                messages:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    additionalProperties: true
+                stream:
+                  type: boolean
+                  default: false
+              additionalProperties: true
+      responses:
+        '200':
+          description: Completion response, or a streaming response when stream is true.
+        '401':
+          description: Missing or invalid API key.
+        '429':
+          description: Rate limit or spend limit reached.
+      tags:
+      - Chat
+components:
+  securitySchemes:
+    RouterPlexApiKey:
+      type: http
+      scheme: bearer
+      bearerFormat: RouterPlex API key
+      description: Create and manage API keys in the RouterPlex dashboard.

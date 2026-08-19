@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RouterPlex Models API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List models available to the authenticated API key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.routerplex.com/v1/models"
+          },
+          "docs": "List models available to the authenticated API key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

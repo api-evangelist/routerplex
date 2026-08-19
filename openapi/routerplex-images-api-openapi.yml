@@ -1,0 +1,60 @@
+openapi: 3.2.0
+info:
+  title: RouterPlex Images API
+  version: 1.0.0
+  description: RouterPlex is an AI gateway that exposes OpenAI-compatible chat completions and image generation, a Responses route for Codex custom providers, and Anthropic-compatible messages through a RouterPlex API key.
+  contact:
+    url: https://docs.routerplex.com/
+servers:
+- url: https://api.routerplex.com/v1
+  description: RouterPlex production API
+security:
+- RouterPlexApiKey: []
+tags:
+- name: Images
+paths:
+  /images/generations:
+    post:
+      summary: Create an OpenAI-compatible image generation
+      operationId: createImageGeneration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - model
+              - prompt
+              properties:
+                model:
+                  type: string
+                  description: A supported image-generation model ID, such as gpt-image-2.
+                prompt:
+                  type: string
+                  minLength: 1
+                size:
+                  type: string
+                  description: An image size supported by the selected model.
+                quality:
+                  type: string
+                  description: An image quality supported by the selected model.
+              additionalProperties: true
+      responses:
+        '200':
+          description: Image response with base64 image data.
+        '400':
+          description: Malformed request or unsupported image option.
+        '401':
+          description: Missing or invalid API key.
+        '429':
+          description: Rate limit or spend limit reached.
+      tags:
+      - Images
+components:
+  securitySchemes:
+    RouterPlexApiKey:
+      type: http
+      scheme: bearer
+      bearerFormat: RouterPlex API key
+      description: Create and manage API keys in the RouterPlex dashboard.

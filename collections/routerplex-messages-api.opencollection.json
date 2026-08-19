@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RouterPlex Messages API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an Anthropic-compatible message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.routerplex.com/v1/messages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an Anthropic-compatible message"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

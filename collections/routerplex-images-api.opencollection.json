@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "RouterPlex Images API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an OpenAI-compatible image generation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.routerplex.com/v1/images/generations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an OpenAI-compatible image generation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

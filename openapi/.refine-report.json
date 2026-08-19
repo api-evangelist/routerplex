@@ -1,0 +1,29 @@
+{
+  "provider": "routerplex",
+  "sources": [
+    "routerplex-chat-api-openapi.yml",
+    "routerplex-images-api-openapi.yml",
+    "routerplex-messages-api-openapi.yml",
+    "routerplex-models-api-openapi.yml",
+    "routerplex-responses-api-openapi.yml"
+  ],
+  "outputs": [
+    "routerplex-chat-api-openapi.yml",
+    "routerplex-images-api-openapi.yml",
+    "routerplex-messages-api-openapi.yml",
+    "routerplex-models-api-openapi.yml",
+    "routerplex-responses-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "routerplex-chat-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "routerplex-images-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "routerplex-messages-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "routerplex-models-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "routerplex-responses-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}
