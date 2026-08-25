@@ -1,0 +1,21 @@
+{
+  "repo": "routerplex",
+  "feeds": [
+    {
+      "source": "https://t.me/RouterPlex",
+      "feed_url": "https://t.me/RouterPlex",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://routerplex.com/blog",
+      "feed_url": "https://routerplex.com/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-22T20:20:02Z"
+}
