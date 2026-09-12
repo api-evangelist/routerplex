@@ -2,20 +2,20 @@
   "repo": "routerplex",
   "feeds": [
     {
-      "source": "https://t.me/RouterPlex",
-      "feed_url": "https://t.me/RouterPlex",
+      "source": "https://routerplex.com/blog",
+      "feed_url": "https://routerplex.com/blog",
       "title": "",
       "saved": 0,
       "method": "none"
     },
     {
-      "source": "https://routerplex.com/blog",
-      "feed_url": "https://routerplex.com/blog",
+      "source": "https://t.me/RouterPlex",
+      "feed_url": "https://t.me/RouterPlex",
       "title": "",
       "saved": 0,
       "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-30T22:33:40Z"
+  "fetched": "2026-09-06T19:17:18Z"
 }
