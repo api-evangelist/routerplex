@@ -1,0 +1,10 @@
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:routerplex.com:mcp:public-catalog",
+      "type": "application/mcp-server-card+json",
+      "url": "https://routerplex.com/.well-known/mcp/server-card.json"
+    }
+  ]
+}
