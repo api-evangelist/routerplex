@@ -1,11 +1,7 @@
 {
   "provider": "routerplex",
   "sources": [
-    "routerplex-chat-api-openapi.yml",
-    "routerplex-images-api-openapi.yml",
-    "routerplex-messages-api-openapi.yml",
-    "routerplex-models-api-openapi.yml",
-    "routerplex-responses-api-openapi.yml"
+    "_original/routerplex-inference-openapi.json"
   ],
   "outputs": [
     "routerplex-chat-api-openapi.yml",
@@ -18,12 +14,25 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "routerplex-chat-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "routerplex-images-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "routerplex-messages-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "routerplex-models-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "routerplex-responses-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "routerplex-inference-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "routerplex-inference-openapi.json: tagged paths POST /chat/completions -> Chat",
+    "routerplex-inference-openapi.json: tagged paths POST /images/generations -> Images",
+    "routerplex-inference-openapi.json: tagged paths POST /responses -> Responses",
+    "routerplex-inference-openapi.json: tagged paths POST /messages -> Messages",
+    "routerplex-inference-openapi.json: tagged paths GET /models -> Models",
+    "routerplex-inference-openapi.json: declared missing tag: Chat",
+    "routerplex-inference-openapi.json: declared missing tag: Images",
+    "routerplex-inference-openapi.json: declared missing tag: Messages",
+    "routerplex-inference-openapi.json: declared missing tag: Models",
+    "routerplex-inference-openapi.json: declared missing tag: Responses",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "routerplex-chat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "routerplex-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "routerplex-messages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "routerplex-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "routerplex-responses-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
