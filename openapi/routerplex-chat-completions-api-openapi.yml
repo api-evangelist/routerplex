@@ -11,7 +11,7 @@ servers:
 security:
 - RouterPlexApiKey: []
 tags:
-- name: Chat
+- name: Chat Completions
 paths:
   /chat/completions:
     post:
@@ -48,7 +48,7 @@ paths:
         '429':
           description: Rate limit or spend limit reached.
       tags:
-      - Chat
+      - Chat Completions
 components:
   securitySchemes:
     RouterPlexApiKey:

@@ -74,30 +74,6 @@ tags_raw:
   - mcp
   - llmops
 apis:
-- aid: routerplex:routerplex-chat-api
-  name: RouterPlex Chat API
-  description: The Chat API from RouterPlex — 1 operation(s) for chat.
-  humanURL: https://docs.routerplex.com
-  baseURL: https://api.routerplex.com/v1
-  tags:
-  - Chat
-  properties:
-  - type: OpenAPI
-    url: openapi/routerplex-chat-api-openapi.yml
-  - type: Documentation
-    url: https://docs.routerplex.com
-  - type: APIReference
-    url: https://docs.routerplex.com/chat-completions
-  - type: GettingStarted
-    url: https://docs.routerplex.com/quickstart
-  - type: Authentication
-    url: https://docs.routerplex.com/authentication
-  - type: ErrorCatalog
-    url: https://docs.routerplex.com/errors
-  - type: LLMSTxt
-    url: https://routerplex.com/llms.txt
-  - type: LLMSTxt
-    url: https://docs.routerplex.com/llms-full.txt
 - aid: routerplex:routerplex-images-api
   name: RouterPlex Images API
   description: The Images API from RouterPlex — 1 operation(s) for images.
@@ -184,6 +160,30 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/routerplex-responses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.routerplex.com
+  - type: APIReference
+    url: https://docs.routerplex.com/chat-completions
+  - type: GettingStarted
+    url: https://docs.routerplex.com/quickstart
+  - type: Authentication
+    url: https://docs.routerplex.com/authentication
+  - type: ErrorCatalog
+    url: https://docs.routerplex.com/errors
+  - type: LLMSTxt
+    url: https://routerplex.com/llms.txt
+  - type: LLMSTxt
+    url: https://docs.routerplex.com/llms-full.txt
+- aid: routerplex:routerplex-chat-completions-api
+  name: RouterPlex Chat Completions API
+  description: The Chat Completions API from RouterPlex — 1 operation(s) for chat completions.
+  humanURL: https://docs.routerplex.com
+  baseURL: https://api.routerplex.com/v1
+  tags:
+  - Chat Completions
+  properties:
+  - type: OpenAPI
+    url: openapi/routerplex-chat-completions-api-openapi.yml
   - type: Documentation
     url: https://docs.routerplex.com
   - type: APIReference
