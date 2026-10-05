@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.routerplex.com/openapi.json",
+ "requested_url": "https://docs.routerplex.com/openapi.json",
+ "status": 200,
+ "content_type": "application/vnd.oai.openapi+json;version=3.1; charset=utf-8",
+ "bytes": 4831,
+ "sha256": "ff6788c09f5bed68f5cc872d0af617229f54a8150ea7f19d6e3bb34745c6d1ba",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
