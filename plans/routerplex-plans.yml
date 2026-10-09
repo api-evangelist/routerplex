@@ -68,3 +68,39 @@ refunds:
     at RouterPlex's discretion on request. Promotional credit is non-refundable.
   source: https://routerplex.com/terms
 machine_readable: https://routerplex.com/pricing.md
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: Pay as you go
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Plex Lite
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Plex Pro
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Plex Max
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
