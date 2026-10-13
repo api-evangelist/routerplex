@@ -1,0 +1,23 @@
+edges:
+- partner_name: OpenAI
+  partner: openai
+  partner_match: domain
+  type: contract
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/routerplex/blob/main/openapi/routerplex-chat-completions-api-openapi.yml#L5
+  contract_reference:
+    repo: routerplex
+    spec_file: routerplex-chat-completions-api-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'routerplex declares OpenAI compatibility: ''description: RouterPlex is an AI gateway that exposes OpenAI-compatible
+      chat completions and image generation, a Responses route for Codex custom providers, and'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-13'
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched
+checked: []
