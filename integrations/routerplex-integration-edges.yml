@@ -15,7 +15,7 @@ edges:
     note: 'routerplex declares OpenAI compatibility: ''description: RouterPlex is an AI gateway that exposes OpenAI-compatible
       chat completions and image generation, a Responses route for Codex custom providers, and'''
     detected_by: sweep-model-routing.py
-    detected: '2026-10-13'
+    detected: '2026-10-15'
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
 generated: '2026-10-13'
