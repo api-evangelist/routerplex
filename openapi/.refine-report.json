@@ -10,7 +10,9 @@
     "routerplex-models-api-openapi.yml",
     "routerplex-responses-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -26,10 +28,11 @@
     "routerplex-inference-openapi.json: declared missing tag: Messages",
     "routerplex-inference-openapi.json: declared missing tag: Models",
     "routerplex-inference-openapi.json: declared missing tag: Responses",
-    "apis.yml register: already-registered"
+    "superseded outputs removed: routerplex-chat-completions-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 5 total)"
   ],
   "skipped": [
-    "routerplex-chat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "routerplex-chat-completions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "routerplex-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "routerplex-messages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "routerplex-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
