@@ -1,6 +1,6 @@
 # RouterPlex
 
-Multi-model LLM API gateway fronting 37 models from multiple vendors behind one API key and prepaid balance, exposing OpenAI-compatible and Anthropic-compatible REST endpoints, streaming, tool calling, JSON mode, vision, and image generation.
+Multi-model LLM API gateway fronting 64 models from multiple vendors behind one API key and prepaid balance, exposing OpenAI-compatible and Anthropic-compatible REST endpoints, streaming, tool calling, JSON mode, vision, and image generation.
 
 - **Provider:** https://routerplex.com
 - **Documentation:** https://docs.routerplex.com
@@ -12,7 +12,7 @@ Multi-model LLM API gateway fronting 37 models from multiple vendors behind one 
 
 ## APIs
 
-- **RouterPlex Inference API** — OpenAI-compatible and Anthropic-compatible REST API for chat completions, model listing, and image generation across 37 models. Key-authenticated with per-key budgets, allowlists, and rate limits. (`https://api.routerplex.com/v1`)
+- **RouterPlex Inference API** — OpenAI-compatible and Anthropic-compatible REST API for chat completions, model listing, and image generation across 64 models. Key-authenticated with per-key budgets, allowlists, and rate limits. (`https://api.routerplex.com/v1`)
 
 > Publicly consumable REST API confirmed at https://api.routerplex.com/v1 (OpenAI-compatible) and https://api.routerplex.com (Anthropic-compatible, appends /v1/messages). Agent-native surfaces confirmed: llms.txt (https://routerplex.com/llms.txt), llms-full.txt (https://docs.routerplex.com/llms-full.txt), plus machine-readable Markdown companions at https://routerplex.com/pricing.md and https://routerplex.com/benchmarks.md. The provider's own apis.json at https://routerplex.com/apis.json was not fetchable during research and advertised a base URL (marketing host) that differs from the actual API host.
 

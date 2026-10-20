@@ -18,7 +18,7 @@ source: >-
 # Select a RouterPlex model and call it
 
 RouterPlex is an OpenAI- and Anthropic-compatible gateway. Base URL:
-`https://api.routerplex.com/v1`. One API key, one prepaid balance, ~39 models.
+`https://api.routerplex.com/v1`. One API key, one prepaid balance, ~64 models.
 
 ## Before you call anything
 

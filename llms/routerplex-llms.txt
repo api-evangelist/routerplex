@@ -1,6 +1,6 @@
 # RouterPlex
 
-> RouterPlex is an OpenAI- and Anthropic-compatible AI gateway: one API key and one prepaid balance for 39 models (GPT, Claude, Gemini, DeepSeek, Kimi, Qwen and more).
+> RouterPlex is an OpenAI- and Anthropic-compatible AI gateway: one API key and one prepaid balance for 64 models (GPT, Claude, Gemini, DeepSeek, Kimi, Qwen and more).
 
 Base URL: https://api.routerplex.com/v1
 
