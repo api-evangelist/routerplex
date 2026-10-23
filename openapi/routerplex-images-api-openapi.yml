@@ -58,3 +58,9 @@ components:
       scheme: bearer
       bearerFormat: RouterPlex API key
       description: Create and manage API keys in the RouterPlex dashboard.
+x-provenance:
+  method: harvested
+  publisher: RouterPlex
+  source: https://docs.routerplex.com/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
