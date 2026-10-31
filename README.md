@@ -1,4 +1,4 @@
-# RouterPlex (routerplex)
+# RouterPlex
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,195 +66,138 @@
 
 RouterPlex is an OpenAI- and Anthropic-compatible AI gateway that fronts 64 chat and image models from 15 vendors — OpenAI, Anthropic, Google, DeepSeek, Moonshot, Alibaba, MiniMax, Zhipu, xAI and others — behind one API key and one prepaid balance, at vendor list prices with no markup and no top-up fee. It exposes OpenAI Chat Completions, the OpenAI Responses route for Codex, Anthropic Messages, image generation and a model catalog on a single v1 REST surface, so the official OpenAI and Anthropic SDKs work unmodified with only a base URL change. Per-key hard spend budgets, model allowlists and optional RPM/TPM limits are the containment model for autonomous agents. RouterPlex also runs an anonymous read-only MCP server for model discovery and publishes an RFC 9727 API catalog, an OpenAPI 3.1 description, llms.txt and Markdown pricing and benchmark companions.
 
-**APIs.json:** [https://routerplex.apievangelist.com/apis.yml](https://routerplex.apievangelist.com/apis.yml)
+**Areas:** LLM · Artificial Intelligence · AI Gateway · Inference · Model Router · OpenAI-Compatible · Anthropic Compatible · Claude · GPT · Gemini · API Gateway · Agent Infrastructure
 
-## Tags
+## RouterPlex on APIs.io
 
-- llm
-- ai
-- ai-gateway
-- inference
-- model-router
-- openai-compatible
-- anthropic-compatible
-- claude
-- gpt
-- gemini
-- api-gateway
-- agent-infrastructure
-- developer-tools
-- mcp
-- llmops
+Everything profiled for RouterPlex is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/routerplex/](https://apis.io/providers/routerplex/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-07-26
-- **Modified:** 2026-08-09
+- [RouterPlex Images API](https://apis.io/apis/routerplex/routerplex-images-api/) — The Images API from RouterPlex — 1 operation(s) for images.
+- [RouterPlex Messages API](https://apis.io/apis/routerplex/routerplex-messages-api/) — The Messages API from RouterPlex — 1 operation(s) for messages.
+- [RouterPlex Models API](https://apis.io/apis/routerplex/routerplex-models-api/) — The Models API from RouterPlex — 1 operation(s) for models.
+- [RouterPlex Responses API](https://apis.io/apis/routerplex/routerplex-responses-api/) — The Responses API from RouterPlex — 1 operation(s) for responses.
+- [RouterPlex Chat Completions API](https://apis.io/apis/routerplex/routerplex-chat-completions-api/) — The Chat Completions API from RouterPlex — 1 operation(s) for chat completions.
 
-## APIs
+### Published properties
 
-### RouterPlex Chat API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Chat API from RouterPlex — 1 operation(s) for chat.
+#### MCP servers (1)
 
-- **Human URL:** [https://docs.routerplex.com](https://docs.routerplex.com)
-- **Base URL:** `https://api.routerplex.com/v1`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [RouterPlex Public Catalog](https://apis.io/servers/routerplex/routerplex-public-catalog/)
 
-- Chat
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [OpenAPI](openapi/routerplex-chat-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/routerplex-chat-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/routerplex-chat-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://docs.routerplex.com)
-- [API Reference](https://docs.routerplex.com/chat-completions)
-- [Getting Started](https://docs.routerplex.com/quickstart)
-- [Authentication](https://docs.routerplex.com/authentication)
-- [Error Catalog](https://docs.routerplex.com/errors)
-- [L L M S Txt](https://routerplex.com/llms.txt)
-- [L L M S Txt](https://docs.routerplex.com/llms-full.txt)
+- [Routerplex Agentic Access](https://apis.io/agentic-access/routerplex/routerplex-agentic-access/)
 
-### RouterPlex Images API
+#### Collections (5)
 
-The Images API from RouterPlex — 1 operation(s) for images.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://docs.routerplex.com](https://docs.routerplex.com)
-- **Base URL:** `https://api.routerplex.com/v1`
+- [RouterPlex Chat API](https://apis.io/collections/routerplex/open-routerplex-chat-api/)
+- [RouterPlex Images API](https://apis.io/collections/routerplex/open-routerplex-images-api/)
+- [RouterPlex Messages API](https://apis.io/collections/routerplex/open-routerplex-messages-api/)
+- [RouterPlex Models API](https://apis.io/collections/routerplex/open-routerplex-models-api/)
+- [RouterPlex Responses API](https://apis.io/collections/routerplex/open-routerplex-responses-api/)
 
-#### Tags
+#### Overlays (1)
 
-- Images
+OpenAPI overlays, including conversational phrasing for each operation.
 
-#### Properties
+- [Routerplex Inference Overlay](https://apis.io/overlays/routerplex/routerplex-inference-overlay/)
 
-- [OpenAPI](openapi/routerplex-images-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/routerplex-images-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/routerplex-images-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://docs.routerplex.com)
-- [API Reference](https://docs.routerplex.com/chat-completions)
-- [Getting Started](https://docs.routerplex.com/quickstart)
-- [Authentication](https://docs.routerplex.com/authentication)
-- [Error Catalog](https://docs.routerplex.com/errors)
-- [L L M S Txt](https://routerplex.com/llms.txt)
-- [L L M S Txt](https://docs.routerplex.com/llms-full.txt)
+#### Security (2)
 
-### RouterPlex Messages API
+Authentication, trust centre, and vulnerability disclosure.
 
-The Messages API from RouterPlex — 1 operation(s) for messages.
+- [Routerplex Authentication](https://apis.io/security/routerplex/routerplex-authentication/)
+- [Routerplex Domain Security](https://apis.io/security/routerplex/routerplex-domain-security/)
 
-- **Human URL:** [https://docs.routerplex.com](https://docs.routerplex.com)
-- **Base URL:** `https://api.routerplex.com/v1`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- Messages
+- [Routerplex Plans](https://apis.io/plans/routerplex/routerplex-plans/)
 
-#### Properties
+#### Rate limits (1)
 
-- [OpenAPI](openapi/routerplex-messages-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/routerplex-messages-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/routerplex-messages-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://docs.routerplex.com)
-- [API Reference](https://docs.routerplex.com/chat-completions)
-- [Getting Started](https://docs.routerplex.com/quickstart)
-- [Authentication](https://docs.routerplex.com/authentication)
-- [Error Catalog](https://docs.routerplex.com/errors)
-- [L L M S Txt](https://routerplex.com/llms.txt)
-- [L L M S Txt](https://docs.routerplex.com/llms-full.txt)
+Published request limits.
 
-### RouterPlex Models API
+- [Routerplex Rate Limits](https://apis.io/rate-limits/routerplex/routerplex-rate-limits/)
 
-The Models API from RouterPlex — 1 operation(s) for models.
+## Where to find this API
 
-- **Human URL:** [https://docs.routerplex.com](https://docs.routerplex.com)
-- **Base URL:** `https://api.routerplex.com/v1`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Models
-
-#### Properties
-
-- [OpenAPI](openapi/routerplex-models-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/routerplex-models-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/routerplex-models-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://docs.routerplex.com)
-- [API Reference](https://docs.routerplex.com/chat-completions)
-- [Getting Started](https://docs.routerplex.com/quickstart)
-- [Authentication](https://docs.routerplex.com/authentication)
-- [Error Catalog](https://docs.routerplex.com/errors)
-- [L L M S Txt](https://routerplex.com/llms.txt)
-- [L L M S Txt](https://docs.routerplex.com/llms-full.txt)
-
-### RouterPlex Responses API
-
-The Responses API from RouterPlex — 1 operation(s) for responses.
-
-- **Human URL:** [https://docs.routerplex.com](https://docs.routerplex.com)
-- **Base URL:** `https://api.routerplex.com/v1`
-
-#### Tags
-
-- Responses
-
-#### Properties
-
-- [OpenAPI](openapi/routerplex-responses-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/routerplex-responses-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/routerplex-responses-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Documentation](https://docs.routerplex.com)
-- [API Reference](https://docs.routerplex.com/chat-completions)
-- [Getting Started](https://docs.routerplex.com/quickstart)
-- [Authentication](https://docs.routerplex.com/authentication)
-- [Error Catalog](https://docs.routerplex.com/errors)
-- [L L M S Txt](https://routerplex.com/llms.txt)
-- [L L M S Txt](https://docs.routerplex.com/llms-full.txt)
-
-## Common Properties
-
-- [Overlay](overlays/routerplex-inference-overlay.yaml)
-- [Agentic Access](agentic-access/routerplex-agentic-access.yml)
-- [Domain Security](security/routerplex-domain-security.yml)
-- [Authentication](authentication/routerplex-authentication.yml)
 - [Website](https://routerplex.com)
-- [Developer Portal](https://docs.routerplex.com)
 - [Documentation](https://docs.routerplex.com)
-- [API Reference](https://docs.routerplex.com/chat-completions)
-- [Getting Started](https://docs.routerplex.com/quickstart)
-- [Support](mailto:support@routerplex.com)
+- [Getting started](https://docs.routerplex.com/quickstart)
+- [API reference](https://docs.routerplex.com/chat-completions)
+- [Pricing](https://routerplex.com/pricing)
+- [Sign up](https://routerplex.com/sign-up)
 - [Support](https://t.me/RouterPlex)
 - [Blog](https://routerplex.com/blog)
-- [Blog R S S](https://routerplex.com/rss.xml)
-- [GitHub Organization](https://github.com/RouterPlex)
-- [Pricing](https://routerplex.com/pricing)
-- [Sign Up](https://routerplex.com/sign-up)
-- [Login](https://routerplex.com/sign-in)
-- [Terms of Service](https://routerplex.com/terms)
-- [Privacy Policy](https://routerplex.com/privacy)
-- [M C P Server](mcp/routerplex-mcp.yml)
-- [Tool Crosswalk](mcp/routerplex-tool-crosswalk.yml)
-- [Agent Skill](skills/_index.yml)
-- [L L Ms Txt](llms/routerplex-llms.txt)
-- [Well Known](well-known/routerplex-well-known.yml)
-- [A P I Catalog](https://routerplex.com/.well-known/api-catalog)
-- [Content Signal](https://routerplex.com/robots.txt)
-- [Conformance](conformance/routerplex-conformance.yml)
-- [Error Catalog](errors/routerplex-problem-types.yml)
-- [Lifecycle](lifecycle/routerplex-lifecycle.yml)
-- [Conventions](conventions/routerplex-conventions.yml)
-- [Rate Limits](rate-limits/routerplex-rate-limits.yml)
-- [Plans](plans/routerplex-plans.yml)
-- [Packages](packages/routerplex-packages.yml)
-- [Playground](https://routerplex.com/dashboard/playground)
-- [Sandbox](sandbox/routerplex-sandbox.yml)
-- [Benchmarks](https://routerplex.com/benchmarks.md)
-- [Pricing](https://routerplex.com/pricing.md)
+- [Terms of service](https://routerplex.com/terms)
+- [Privacy policy](https://routerplex.com/privacy)
+- [GitHub](https://github.com/RouterPlex)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** RouterPlex
-**Email:** support@routerplex.com
-**URL:** https://routerplex.com
+**Kin Score 43.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 85.0 |
+| Contract quality | 48.5 |
+| Contract governance | 4.5 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 36.3 |
+| Access clarity | 53.9 |
+
+**Agent readiness 37.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | yes |
+| Consent Identity | yes |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 19.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/routerplex/](https://apis.io/providers/routerplex/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for RouterPlex: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/routerplex/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
