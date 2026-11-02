@@ -1,0 +1,100 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://routerplex.com/pricing
+sources:
+- https://routerplex.com/pricing
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T161713
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+  managed_tier: Plex Lite
+published: true
+note: Prepaid PAYG with $5 minimum top-up plus three monthly plans granting bonus credit; token usage
+  billed at vendor list prices with 0% markup.
+plan_count: 4
+currency: USD
+plans:
+- name: Pay as you go
+  price_text: $0
+  price: 0
+  currency: USD
+  period: month
+  unit: per token
+  included_quota: Balance only; unlimited API keys after paid top-up
+- name: Plex Lite
+  price_text: $10 /month
+  price: 10
+  currency: USD
+  period: month
+  unit: plan
+  included_quota: $11 model credit, up to 10 API keys
+  overage: $11 monthly usage cap
+- name: Plex Pro
+  price_text: $30 /month
+  price: 30
+  currency: USD
+  period: month
+  unit: plan
+  included_quota: $35 model credit, up to 50 API keys
+  overage: $35 monthly usage cap
+- name: Plex Max
+  price_text: $100 /month
+  price: 100
+  currency: USD
+  period: month
+  unit: plan
+  included_quota: $125 model credit, unlimited API keys
+  overage: $125 monthly usage cap
+rate_limit_statements:
+- No RouterPlex RPM or TPM cap
+- $2.20 / 4 hours · $5.50 / week
+- $7 / 4 hours · $17.50 / week
+- $25 / 4 hours · $62.50 / week
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units:
+  - token
+  plans:
+  - name: Pay as you go
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - token
+    periods:
+    - month
+  - name: Plex Lite
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Plex Pro
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Plex Max
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
